@@ -18,23 +18,55 @@
 
        return computerChoice=(choiceArray[randomNumber]);
         }
-    </script>
-
-    <script>
+    
+      
       
         let selection = window.prompt('Choose Rock, Paper, or Scissors');
 
         function getPlayerChoice(playerselection) {
         playerselection = selection.toLowerCase();
         return playerselection; }
-    </script>
+  
+        let computerScore = 0;
+        let playerScore = 0;
 
-    <script>
         function playround(getComputerChoice, getPlayerChoice){
 
-            if 
+            if (getComputerChoice === getPlayerChoice){
+                return "Tie!";
+            }   else if (getComputerChoice === "rock" && getPlayerChoice === "paper") {
+                ++playerScore;
+                return "The computer chose rock! You win! Paper beats rock!";
+
+            }   else if (getComputerChoice === "paper" && getPlayerChoice === "rock") {
+                ++computerScore;
+                return "The computer chose paper! You lose! Paper beats rock!";
+
+            }   else if (getComputerChoice === "scissors" && getPlayerChoice === "paper") {
+                ++computerScore;
+                return "The computer chose scissors! You lose! Scissors beats paper!";
+
+            }   else if (getComputerChoice === "paper" && getPlayerChoice === "scissors") {
+                ++playerScore;
+                return "The computer chose paper! You win! Scissors beats paper!";
+
+            }   else if (getComputerChoice === "rock" && getPlayerChoice === "scissors") {
+                ++computerScore;
+                return "The computer chose rock! You lose! Rock beats scissors!";
+
+            }   else if (getComputerChoice === "scissors" && getPlayerChoice === "rock") {
+                ++playerScore;
+                return "The computer chose scissors! You win! Rock beats scissors!";
+            }
 
         }
+
+       // console.log(playround(getComputerChoice(),getPlayerChoice()));
+
+  
+            for (let i=0; i < 6; i++) 
+            {console.log(playround(getComputerChoice(), getPlayerChoice()));}
+       
     </script>
 </body>
 </html>
