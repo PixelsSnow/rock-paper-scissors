@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Papers Scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(computerChoice){
+        computerChoice = '';
+        var choiceArray = [
+            'Rock','Paper','Scissors'
+        ];
+
+        var randomNumber = Math.floor(Math.random()*choiceArray.length);
+
+       return computerChoice=(choiceArray[randomNumber]);
+        }
+    </script>
+
+    
+    
+</body>
+</html>
