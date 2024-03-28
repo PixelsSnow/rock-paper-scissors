@@ -6,10 +6,16 @@
     <title>Rock Papers Scissors</title>
 </head>
 <body>
-
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div></div>
     <script>
+       
     function playgame() {
-        
+        function getPlayerChoice(option){
+            
+        }
         function getComputerChoice(computerChoice){
         computerChoice = '';
         var choiceArray = [
@@ -53,26 +59,26 @@
         }
             let computerScore = 0;
             let playerScore = 0;
-        for (let i=0; i < 5; i++){
-            let userInput = "";
+        //for (let i=0; i < 5; i++){
+            //let userInput = "";
 
-            for (let j=0; j < 1; j++) {
-                userInput = window.prompt('Please type in; Rock, Paper, or Scissors');
+            //for (let j=0; j < 1; j++) {
+             //   userInput = window.prompt('Please type in; Rock, Paper, or Scissors');
 
-                if (
-                    userInput === " " ||
-                    userInput === null ||
-                    (userInput.toLowerCase() !== "rock" &&
-                    userInput.toLowerCase() !== "paper" &&
-                    userInput.toLowerCase() !== "scissors")
-                ) {
-                    j--;
-                    continue;
-                }
-            }
+                //if (
+                //    userInput === " " ||
+                //    userInput === null ||
+                //    (userInput.toLowerCase() !== "rock" &&
+                //    userInput.toLowerCase() !== "paper" &&
+                //    userInput.toLowerCase() !== "scissors")
+               // ) {
+              //      j--;
+              //      continue;
+              //  }
+          //  }
 
-            console.log(playround(getComputerChoice(), userInput));
-        }
+       //     console.log(playround(getComputerChoice(), userInput));
+     //   }
            if (playerScore > computerScore) {
             console.log("You are the winner! Player score: " + playerScore + " Computer score: " + computerScore);
            } else if (playerScore < computerScore) {
@@ -80,6 +86,25 @@
            } else {
             console.log("No one wins, it's a tie!")
            }
+
+           
+           document.getElementById("rock").addEventListener("click", function() {
+            getPlayerChoice = "rock";
+            console.log("Chose Rock");
+            console.log(playround(getComputerChoice(), getPlayerChoice));
+           }) ;
+
+           document.getElementById("paper").addEventListener("click", function() {
+            getPlayerChoice = "paper";
+            console.log("Chose Paper");
+            console.log(playround(getComputerChoice(), getPlayerChoice));
+           }) ;
+
+           document.getElementById("scissors").addEventListener("click", function() {
+            getPlayerChoice = "scissors";
+            console.log("Chose Scissors");
+            console.log(playround(getComputerChoice(), getPlayerChoice));
+           }) ;
     }
 
   playgame();
