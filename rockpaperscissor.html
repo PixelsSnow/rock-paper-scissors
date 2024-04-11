@@ -9,11 +9,12 @@
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
+    <button id="reset">Reset</button>
     <div>
         <p id="computerscore"></p>
         <p id="playerscore"></p>
         <p id="results"></p>
-        <p id="totalresult"></p>
+        <p style="color: green;" id="winner"></p>
     </div>
     <script>
        
@@ -34,7 +35,6 @@
         
         let computerScore = 0;
         let playerScore = 0;
-        let totalRounds = 0;
         
         function updateScores() {
             document.getElementById("computerscore").innerText = "Computers Score: " + computerScore;
@@ -87,8 +87,7 @@
             getPlayerChoice = "rock";
             console.log("Chose Rock");
             document.getElementById("results").innerText = playround(getComputerChoice(), getPlayerChoice);
-            totalRounds++;
-            if (totalRounds >= 5){
+            if (playerScore >= 5 || computerScore >= 5){
                 checkWinner();
             }
            }) ;
@@ -97,8 +96,7 @@
             getPlayerChoice = "paper";
             console.log("Chose Paper");
             document.getElementById("results").innerText = playround(getComputerChoice(), getPlayerChoice);
-            totalRounds++;
-            if (totalRounds >= 5){
+            if (playerScore >= 5 || computerScore >= 5){
                 checkWinner();
             }
            }) ;
@@ -107,21 +105,35 @@
             getPlayerChoice = "scissors";
             console.log("Chose Scissors");
             document.getElementById("results").innerText = playround(getComputerChoice(), getPlayerChoice);
-            totalRounds++;
-            if (totalRounds >= 5){
+            if (playerScore >= 5 || computerScore >= 5){
                 checkWinner();
             }
            }) ;
+           document.getElementById("reset").addEventListener("click", function() { // Added event listener for reset button
+            resetScores();
+           });
 
+           function resetScores() { // Function to reset scores
+            computerScore = 0;
+            playerScore = 0;
+            updateScores();
+            document.getElementById("results").innerText = " ";
+            document.getElementById("winner").innerText = " ";
+        }
            function checkWinner() {
             if (playerScore > computerScore) {
-                console.log("You are the winner!");
+                document.getElementById("winner").innerText = "Congratulations! You are the Winner!! Game will reset in 5 seconds";
+                window.setTimeout(resetScores, 5000);
             } else if (playerScore < computerScore) {
-                console.log("You lost!");
+                document.getElementById("winner").innerText = "Sorry! You lost to the computer! Game will reset in 5 seconds";
+                window.setTimeout(resetScores, 5000);
             } else {
-                console.log("It's a tie!")
+                document.getElementById("winner").innerText = "It's a tie! Game will reset in 5 seconds";
+                window.setTimeout(resetScores, 5000);
             }
            }
+
+           
            updateScores();
     }
 
